@@ -78,7 +78,7 @@ public class CardsActivity extends AppCompatActivity {
                 });
 
         //Fine codice drawer
-        //start test
+        //Inizio codice Cards
         mDataset=new ArrayList<CardContent>();
         String [] primary_text={"Titolo Prima Card","Titolo Seconda Card","Titolo Terza Card",
                 "Titolo Quarta Card","Titolo Quinta Card"};
