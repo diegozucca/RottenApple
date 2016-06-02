@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RottenAppleDesign</string>
+    <string name="action_settings">Cancella le scritte per lo scroll</string>
+    <string name="title_activity_add_item">Inserisci una stringa</string>
+    <string name="Cards">Cards</string>
+    <string name="TDWorld">3D World</string>
+    <string name="Colors">Colors</string>
+    <string name="Images">Images</string>
+    <string name="expand_text">Testo per far espandere la card</string>
+    <string name="FAB_transition">FAB</string>
+</resources>

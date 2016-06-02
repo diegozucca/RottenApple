@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+     Activity di visualizzazione delle immagini
+
+   -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.diego.rottenappledesign.Images"
+
+    >
+
+    <!--
+     AppBar contenente solo la scritta di descrizione
+     Solitamente, nella parte superiore, sono riportate
+     delle icone con comandi specifici. In tal caso non
+     sono state implementate. Specifiche material
+     elevation:4dp height:128dp
+     textElevation=28dp
+     -->
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbarImages"
+        android:layout_height="128dp"
+        android:layout_width="match_parent"
+        android:background="?android:attr/colorPrimary"
+        android:elevation="4dp"
+        android:gravity="bottom"
+        >
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dp"
+        >
+
+            <!--
+              Specifiche material:
+              margine verso l'alto del testo 76dp
+            -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Images"
+            android:fontFamily="sans-serif"
+            android:textSize="28dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginTop="76dp"
+            android:textColor="#FFFFFF"
+            />
+
+    </RelativeLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--
+       specifiche material:
+       fab elevation= 6dp
+       fab margine sinistro 16dp
+       fab margine verso l'alto 108dp
+     il fab in tal caso ha il significato di
+     aggiunta foto (potrebbe aprire la fotocamera)
+    -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/imageFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="108dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_add_white_24dp"
+
+        />
+
+    <GridView xmlns:android= "http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarImages"
+        android:gravity="center"
+        android:drawSelectorOnTop="true"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:focusable="true"
+        android:clickable="true"
+        android:verticalSpacing="4dp"
+        android:horizontalSpacing="4dp"
+        android:padding="4dp"
+        />
+
+
+</RelativeLayout>

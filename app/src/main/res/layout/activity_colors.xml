@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Activity  che mostra i colori principali del tema
+-->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.diego.rottenappledesign.Colors">
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativeColor"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+        <!--
+        Flat button che contiene l'indicazione per cambiare colore
+        -->
+        <Button
+            android:id="@+id/button_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="6dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="cambia colore"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="78dp" />
+
+
+        <!--
+        bottone standard riempito del colore con la scritta
+        che descrive il colore del tema
+        -->
+        <Button
+            android:id="@+id/button_color2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:height="48dp"
+            android:clipToPadding="true"
+            android:elevation="2dp"
+            android:fontFamily="sans-serif"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:text="COLORE PRIMARIO"
+            android:layout_marginBottom="48dp"
+            android:layout_above="@+id/colorText2"
+            android:layout_centerHorizontal="true"
+            android:transitionName="@string/FAB_transition"
+            />
+
+
+
+        <!--
+        esadecimale del colore
+        -->
+        <TextView
+            android:layout_width= "wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorText2"
+            android:layout_marginBottom="142dp"
+            android:text="#9B26AF"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
