@@ -15,6 +15,10 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,17 +47,66 @@ public class ButtonActivity extends AppCompatActivity {
     private Bundle bundle;
     private FloatingActionButton fab;
     private Toolbar toolbar;
+    private DrawerLayout drawer;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //inizializzazione di toolBar RecyclerView e FAB
         setContentView(R.layout.activity_button);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         list = (RecyclerView) findViewById(R.id.list);
         fab= (FloatingActionButton) findViewById(R.id.fab);
+
+        //Inizio codice per il navigation drawer
+        final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer = (DrawerLayout) findViewById(R.id.drawer);
+        // Aggiunta dell'icona del navigation drawer nella Toolbar
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setHomeAsUpIndicator(R.drawable.drawer_icon);
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        // Impostazione del comportamento quando un oggetto del drawer viene premuto
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        // Colora il background dell'oggetto del menu selezionato
+                        menuItem.setChecked(true);
+                        // Switch per aprire l'activity riguardante l'oggetto selezionato
+                        switch (menuItem.getItemId()){
+                            case R.id.button_menu:
+                                intent=new Intent(ButtonActivity.this, ButtonActivity.class);
+                                break;
+                            case R.id.world3d_menu:
+                                intent=new Intent(ButtonActivity.this, TDWorld.class);
+                                break;
+                            case R.id.card_menu:
+                                intent=new Intent(ButtonActivity.this, CardsActivity.class);
+                                break;
+
+                            case R.id.color_menu:
+                                intent=new Intent(ButtonActivity.this, Colors.class);
+                                break;
+
+                            case R.id.images_menu:
+                                intent=new Intent(ButtonActivity.this, Images.class);
+                                break;
+
+                        }
+                        // Decolora l'oggetto selezionato e chiude il drawer dopo la selezione dell'oggetto
+                        menuItem.setChecked(false);
+                        drawer.closeDrawers();
+                        //apre l'activity selezionata
+                        ButtonActivity.this.startActivity(intent);
+                        return true;
+                    }
+                });
+
+        //Fine codice drawer
 
 
         // riempimento dell'array contenitore dei nomi
@@ -152,7 +205,10 @@ public class ButtonActivity extends AppCompatActivity {
             list.setLayoutManager(new LinearLayoutManager(this));
 
         }
-
+        //se invece viene premuta l'icona del drawer si apre il drawer
+        else if (id == android.R.id.home) {
+            drawer.openDrawer(GravityCompat.START);
+        }
         return super.onOptionsItemSelected(itm);
     }
 

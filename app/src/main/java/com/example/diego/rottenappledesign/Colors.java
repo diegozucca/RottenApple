@@ -12,9 +12,15 @@ package com.example.diego.rottenappledesign;
 
 
 
+import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,14 +34,69 @@ public class Colors extends AppCompatActivity {
     public Button b;
     public Button a;
     public TextView t;
+    private DrawerLayout drawer;
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         //inizializzazione dei bottoni e del testo
         setContentView(R.layout.activity_colors);
         a = (Button) findViewById(R.id.button_color);
         b = (Button) findViewById(R.id.button_color2);
         t= (TextView) findViewById(R.id.colorText2);
+
+        //Inizio codice per il navigation drawer
+        final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer = (DrawerLayout) findViewById(R.id.drawer);
+        // Aggiunta dell'icona del navigation drawer nella Toolbar
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setHomeAsUpIndicator(R.drawable.drawer_icon);
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        // Impostazione del comportamento quando un oggetto del drawer viene premuto
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        // Colora il background dell'oggetto del menu selezionato
+                        menuItem.setChecked(true);
+                        // Switch per aprire l'activity riguardante l'oggetto selezionato
+                        switch (menuItem.getItemId()){
+                            case R.id.button_menu:
+                                intent=new Intent(Colors.this, ButtonActivity.class);
+                                break;
+                            case R.id.world3d_menu:
+                                intent=new Intent(Colors.this, TDWorld.class);
+                                break;
+                            case R.id.card_menu:
+                                intent=new Intent(Colors.this, CardsActivity.class);
+                                break;
+
+                            case R.id.color_menu:
+                                intent=new Intent(Colors.this, Colors.class);
+                                break;
+
+                            case R.id.images_menu:
+                                intent=new Intent(Colors.this, Images.class);
+                                break;
+
+                        }
+                        // Decolora l'oggetto selezionato e chiude il drawer dopo la selezione dell'oggetto
+                        menuItem.setChecked(false);
+                        drawer.closeDrawers();
+                        //apre l'activity selezionata
+                        Colors.this.startActivity(intent);
+                        return true;
+                    }
+                });
+
+        //Fine codice drawer
+
 
         /*
         *
@@ -111,5 +172,17 @@ public class Colors extends AppCompatActivity {
         });
 
 
+    }
+    //Metodo che permette l'apertura del navigation drawer toccando
+    //l'icona corrispondente nella toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        } else if (id == android.R.id.home) {
+            drawer.openDrawer(GravityCompat.START);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
