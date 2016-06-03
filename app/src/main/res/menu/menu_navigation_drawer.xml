@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/button_menu"
+            android:tint="@color/colorPrimary"
+            android:title="Button" />
+        <item
+            android:id="@+id/world3d_menu"
+            android:tint="@color/colorPrimary"
+            android:title="3D World" />
+        <item
+            android:id="@+id/card_menu"
+            android:tint="@color/colorPrimary"
+            android:title="Cards" />
+        <item
+            android:id="@+id/color_menu"
+            android:tint="@color/colorPrimary"
+            android:title="Colors" />
+        <item
+            android:id="@+id/images_menu"
+            android:tint="@color/colorPrimary"
+            android:title="Images" />
+    </group>
+</menu>

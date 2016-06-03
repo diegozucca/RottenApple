@@ -15,6 +15,10 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,14 +51,12 @@ public class ButtonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //inizializzazione di toolBar RecyclerView e FAB
         setContentView(R.layout.activity_button);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         list = (RecyclerView) findViewById(R.id.list);
         fab= (FloatingActionButton) findViewById(R.id.fab);
-
 
         // riempimento dell'array contenitore dei nomi
         material[0]= "3DWorld";
@@ -152,7 +154,6 @@ public class ButtonActivity extends AppCompatActivity {
             list.setLayoutManager(new LinearLayoutManager(this));
 
         }
-
         return super.onOptionsItemSelected(itm);
     }
 

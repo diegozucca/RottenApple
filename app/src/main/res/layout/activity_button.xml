@@ -5,8 +5,7 @@
      da visualizzare
 
    -->
-
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -29,21 +28,18 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
-
-
     <include layout="@layout/content_button" />
 
     <!--
-        Bottone Floating usato per aggiungere elementi alla lista.
-        Le sue animazioni sono 2:
-        -Translazione
-        -"Fading" allo scroll
-        La seconda è descritta dalle classi specificate nel behavour.
-        Il transition name serve invece per l'effetto di transizione
-        tra Activity. L'elevation è settato a 6dp come nelle specifiche
-        Google per Material Design.
-   -->
+           Bottone Floating usato per aggiungere elementi alla lista.
+           Le sue animazioni sono 2:
+           -Translazione
+           -"Fading" allo scroll
+           La seconda è descritta dalle classi specificate nel behavour.
+           Il transition name serve invece per l'effetto di transizione
+           tra Activity. L'elevation è settato a 6dp come nelle specifiche
+           Google per Material Design.
+    -->
     <android.support.design.widget.FloatingActionButton
         app:layout_behavior= "com.example.diego.rottenappledesign.ScrollRotten"
         android:id="@+id/fab"
@@ -57,9 +53,5 @@
         android:transitionName="@string/FAB_transition"
 
         />
-
-
-
-
 
 </android.support.design.widget.CoordinatorLayout>
