@@ -9,154 +9,202 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.diego.rottenappledesign.TDWorld">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
+        <RelativeLayout
+            android:id="@+id/relativeColor"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
 
-    <RelativeLayout
-        android:id="@+id/relativeColor"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
-
-        <Button
-            android:id="@+id/button_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="6dp"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginTop="34dp"
-            android:layout_below="@+id/textView"
-            android:layout_alignEnd="@+id/textView" />
+            <Button
+                android:id="@+id/button_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="6dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="34dp"
+                android:layout_below="@+id/textView_titolo_componente"
+                android:layout_alignEnd="@+id/textView_titolo_componente" />
 
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/button_color2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:clipToPadding="true"
-            android:elevation="6dp"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="170dp"
-            android:layout_alignStart="@+id/datePicker" />
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floating_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="48dp"
+                android:clipToPadding="true"
+                android:elevation="6dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="170dp"
+                android:layout_alignStart="@+id/datePicker" />
 
 
             <android.support.v7.widget.SwitchCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/switch_component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:elevation="1dp"
+                android:layout_alignEnd="@+id/floating_button"
+                android:layout_below="@id/floating_button"
+                android:layout_marginTop="34dp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton"
+                android:layout_marginTop="34dp"
+                android:elevation="1dp"
+                android:layout_alignStart="@id/button_color"
+                android:layout_below="@id/switch_component"/>
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox"
+                android:elevation="1dp"
+                android:layout_marginLeft="25dp"
+                android:layout_alignTop="@id/radioButton"
+                android:layout_toRightOf="@id/radioButton"/>
+
+            <DatePicker
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                android:elevation="24dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_below="@id/radioButton"
+                android:id="@+id/datePicker"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Spinner>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Componente"
+                android:layout_marginTop="33dp"
+                android:id="@+id/textView_titolo_componente"
                 android:layout_alignParentTop="true"
-                android:layout_alignEnd="@+id/button_color2" />
+                android:layout_alignStart="@+id/floating_button" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elevazione"
+                android:id="@+id/textView_titolo_elevazione"
+                android:layout_above="@+id/button_color"
+                android:layout_alignEnd="@+id/textView_tit_fab" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raised button: 2dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textView_tit_button"
+                android:layout_above="@+id/textView_desc_button"
+                android:layout_alignStart="@+id/textView_desc_button" />
 
-        <DatePicker
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:elevation="24dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="80dp"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/datePicker"></DatePicker>
+            <TextView
+                android:id="@+id/textView_desc_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elevazione tipica del Raised button o di un button generico"
+                android:textSize="12dp"
+                android:paddingEnd="14dp"
+                android:layout_alignBottom="@+id/button_color"
+                android:layout_toEndOf="@+id/datePicker" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FAB: 6dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textView_tit_fab"
+                android:layout_above="@+id/textView_desc_fab"
+                android:layout_alignStart="@+id/textView_desc_button" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Componente"
-            android:layout_marginTop="33dp"
-            android:id="@+id/textView"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/button_color2" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Elevazione"
-            android:id="@+id/textView2"
-            android:layout_above="@+id/button_color"
-            android:layout_alignEnd="@+id/textView5" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Raised button: 2dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:id="@+id/textView3"
-            android:layout_alignTop="@+id/button_color"
-            android:layout_above="@+id/textView4"
-            android:layout_alignStart="@+id/textView4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unico bottone ad avere elevazione di 6dp. "
+                android:textSize="12dp"
+                android:paddingEnd="14dp"
+                android:layout_alignBottom="@+id/floating_button"
+                android:layout_alignStart="@+id/textView_tit_fab"
+                android:layout_alignEnd="@+id/textView_desc_switch"
+                android:id="@+id/textView_desc_fab" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Elevazione tipica del Raised button o di un button generico"
-            android:textSize="12dp"
-            android:layout_alignBottom="@+id/button_color"
-            android:layout_toEndOf="@+id/datePicker"
-            android:id="@+id/textView4" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FAB: 6dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:id="@+id/textView5"
-            android:layout_above="@+id/textView8"
-            android:layout_alignStart="@+id/textView4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Switch: 1dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="34dp"
+                android:layout_above="@+id/textView_desc_switch"
+                android:layout_alignStart="@+id/textView_desc_switch" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Unico bottone ad avere elevazione di 6dp. "
-            android:textSize="12dp"
-            android:layout_alignBottom="@+id/button_color2"
-            android:layout_alignStart="@+id/textView5"
-            android:layout_alignEnd="@+id/textView6"
-            android:id="@+id/textView8" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Uno dei pochi elementi con solo 1dp"
+                android:textSize="12dp"
+                android:paddingEnd="14dp"
+                android:layout_alignStart="@+id/textView_tit_fab"
+                android:layout_alignBottom="@id/switch_component"
+                android:id="@+id/textView_desc_switch" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Picker: 24dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textView_tit_picker"
+                android:layout_alignTop="@+id/datePicker"
+                android:layout_alignEnd="@+id/textView_tit_button"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Switch: 1dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:layout_above="@+id/textView6"
-            android:layout_alignStart="@+id/textView6" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assieme al Dialog è il componente più elevato"
+                android:textSize="12dp"
+                android:paddingEnd="14dp"
+                android:layout_below="@+id/textView_tit_picker"
+                android:layout_alignStart="@+id/textView_tit_picker"
+                android:layout_alignEnd="@+id/textView_desc_switch" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radio Button/Checkbox: 1dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textView_tit_radio"
+                android:layout_toEndOf="@id/checkBox"
+                android:layout_alignStart="@id/textView_tit_fab"
+                android:layout_alignTop="@id/checkBox"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Uno dei pochi elementi con solo 1dp"
-            android:textSize="12dp"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/datePicker"
-            android:id="@+id/textView6" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Picker: 24dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:id="@+id/textView7"
-            android:layout_alignTop="@+id/datePicker"
-            android:layout_alignEnd="@+id/textView3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Non essendoci indicazioni precise ha un elevazione di 1dp."
+                android:textSize="12dp"
+                android:paddingRight="14dp"
+                android:layout_below="@id/textView_tit_radio"
+                android:layout_alignLeft="@id/textView_tit_fab"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Assieme al Dialog è il componente più elevato"
-            android:textSize="12dp"
-            android:layout_below="@+id/textView7"
-            android:layout_alignStart="@+id/textView7"
-            android:layout_alignEnd="@+id/textView6" />
             " />
-    </RelativeLayout>
+        </RelativeLayout>
 
 
-
+    </ScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>
