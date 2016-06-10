@@ -8,4 +8,17 @@
     <string name="Images">Images</string>
     <string name="expand_text">Testo per far espandere la card</string>
     <string name="FAB_transition">FAB</string>
+    <!--Stringhe relative ad activity_tdworld.xml -->
+    <string name="title_componente">Componente</string>
+    <string name="title_elevazione">Elevazione</string>
+    <string name="title_button">Raised button: 2dp</string>
+    <string name="desc_button">Elevazione tipica del Raised button o di un button generico</string>
+    <string name="title_fab">FAB: 6dp</string>
+    <string name="desc_fab">Unico bottone ad avere elevazione di 6dp</string>
+    <string name="title_switch">Switch: 1dp</string>
+    <string name="desc_switch">Uno dei pochi elementi con solo 1dp</string>
+    <string name="title_radio_check">Radio Button/Checkbox: 1dp</string>
+    <string name="desc_radio_check">Non essendoci indicazioni precise ha un elevazione di 1dp</string>
+    <string name="title_picker">Picker: 24dp</string>
+    <string name="desc_picker">Assieme al Dialog è il componente più elevato</string>
 </resources>

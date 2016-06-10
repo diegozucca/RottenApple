@@ -2,206 +2,220 @@
 <!--
    Activity che mostra alcuni componenti descrivendone il parametro elevation
 -->
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.example.diego.rottenappledesign.TDWorld">
 
+    <!--Inserimento di una ScrollView per permettere
+        lo scorrimento in verticale dello schermo-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <RelativeLayout
-            android:id="@+id/relativeColor"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            >
+            android:layout_height="wrap_content">
 
+            <!--Bottone normale -->
             <Button
-                android:id="@+id/button_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="6dp"
+                android:id="@+id/button_normale"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:textColor="@color/colorPrimary"
-                android:layout_marginTop="34dp"
-                android:layout_below="@+id/textView_titolo_componente"
-                android:layout_alignEnd="@+id/textView_titolo_componente" />
-
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floating_button"
+                android:elevation="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_below="@+id/text_titolo_componente"
+                android:layout_alignEnd="@+id/text_titolo_componente" />
+
+            <!--Floating Button -->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/button_floating"
                 android:height="48dp"
                 android:clipToPadding="true"
                 android:elevation="6dp"
                 android:fontFamily="sans-serif"
-                android:layout_marginTop="170dp"
-                android:layout_alignStart="@+id/datePicker" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/date_picker"
+                android:layout_marginTop="170dp" />
 
-
+            <!--Bottone switch -->
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/switch_component"
+                android:elevation="1dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="1dp"
-                android:layout_alignEnd="@+id/floating_button"
-                android:layout_below="@id/floating_button"
+                android:layout_alignEnd="@+id/button_floating"
+                android:layout_below="@id/button_floating"
                 android:layout_marginTop="34dp"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioButton"
-                android:layout_marginTop="34dp"
-                android:elevation="1dp"
-                android:layout_alignStart="@id/button_color"
-                android:layout_below="@id/switch_component"/>
 
-            <CheckBox
+            <!--Radio Button -->
+            <RadioButton
+                android:id="@+id/radio_button"
+                android:elevation="1dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignStart="@id/button_normale"
+                android:layout_below="@id/switch_component"
+                android:layout_marginTop="34dp" />
+
+            <!--Checkbox -->
+            <CheckBox
                 android:id="@+id/checkBox"
                 android:elevation="1dp"
-                android:layout_marginLeft="25dp"
-                android:layout_alignTop="@id/radioButton"
-                android:layout_toRightOf="@id/radioButton"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_alignTop="@id/radio_button"
+                android:layout_toEndOf="@id/radio_button"/>
 
+            <!--Date Picker -->
             <DatePicker
+                android:id="@+id/date_picker"
+                android:elevation="24dp"
                 android:layout_width="130dp"
                 android:layout_height="150dp"
-                android:elevation="24dp"
+                android:layout_below="@id/radio_button"
                 android:layout_marginTop="50dp"
-                android:layout_marginStart="30dp"
-                android:layout_below="@id/radioButton"
-                android:id="@+id/datePicker"/>
+                android:layout_marginStart="30dp" />
+
+            <!--TextView che specificano il titolo:
+                componente o elevazione -->
             <TextView
+                android:id="@+id/text_titolo_componente"
+                android:text="@string/title_componente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Componente"
                 android:layout_marginTop="33dp"
-                android:id="@+id/textView_titolo_componente"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/floating_button" />
+                android:layout_alignStart="@+id/button_floating" />
             <TextView
+                android:id="@+id/text_titolo_elevazione"
+                android:text="@string/title_elevazione"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Elevazione"
-                android:id="@+id/textView_titolo_elevazione"
-                android:layout_above="@+id/button_color"
-                android:layout_alignEnd="@+id/textView_tit_fab" />
+                android:layout_above="@+id/button_normale"
+                android:layout_alignEnd="@+id/text_title_fab" />
+
+            <!--TextView relative al bottone normale-->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Raised button: 2dp"
-                android:textSize="16dp"
+                android:id="@+id/text_title_button"
+                android:text="@string/title_button"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:id="@+id/textView_tit_button"
-                android:layout_above="@+id/textView_desc_button"
-                android:layout_alignStart="@+id/textView_desc_button" />
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/text_desc_button"
+                android:layout_alignStart="@+id/text_desc_button" />
+            <TextView
+                android:id="@+id/text_desc_button"
+                android:text="@string/desc_button"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:paddingEnd="16dp"
+                android:layout_alignBottom="@+id/button_normale"
+                android:layout_toEndOf="@+id/date_picker" />
 
+            <!--TextView relative al floating button-->
             <TextView
-                android:id="@+id/textView_desc_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Elevazione tipica del Raised button o di un button generico"
-                android:textSize="12dp"
-                android:paddingEnd="14dp"
-                android:layout_alignBottom="@+id/button_color"
-                android:layout_toEndOf="@+id/datePicker" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FAB: 6dp"
-                android:textSize="16dp"
+                android:id="@+id/text_title_fab"
+                android:text="@string/title_fab"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:id="@+id/textView_tit_fab"
-                android:layout_above="@+id/textView_desc_fab"
-                android:layout_alignStart="@+id/textView_desc_button" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Unico bottone ad avere elevazione di 6dp. "
-                android:textSize="12dp"
-                android:paddingEnd="14dp"
-                android:layout_alignBottom="@+id/floating_button"
-                android:layout_alignStart="@+id/textView_tit_fab"
-                android:layout_alignEnd="@+id/textView_desc_switch"
-                android:id="@+id/textView_desc_fab" />
+                android:layout_above="@+id/text_desc_fab"
+                android:layout_alignStart="@+id/text_desc_button" />
 
             <TextView
+                android:id="@+id/text_desc_fab"
+                android:text="@string/desc_fab"
+                android:textSize="12sp"
+                android:paddingStart="0dp"
+                android:paddingEnd="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Switch: 1dp"
-                android:textSize="16dp"
+                android:layout_alignBottom="@+id/button_floating"
+                android:layout_alignStart="@+id/text_title_fab"
+                android:layout_alignEnd="@+id/text_desc_switch" />
+
+            <!--TextView relative allo switch-->
+            <TextView
+                android:text="@string/title_switch"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
-                android:layout_above="@+id/textView_desc_switch"
-                android:layout_alignStart="@+id/textView_desc_switch" />
+                android:layout_above="@+id/text_desc_switch"
+                android:layout_alignStart="@+id/text_desc_switch" />
+            <TextView
+                android:id="@+id/text_desc_switch"
+                android:text="@string/desc_switch"
+                android:textSize="12sp"
+                android:paddingStart="0dp"
+                android:paddingEnd="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/text_title_fab"
+                android:layout_alignBottom="@id/switch_component" />
 
+            <!--TextView relative al checkbox e al radio button-->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Uno dei pochi elementi con solo 1dp"
-                android:textSize="12dp"
-                android:paddingEnd="14dp"
-                android:layout_alignStart="@+id/textView_tit_fab"
-                android:layout_alignBottom="@id/switch_component"
-                android:id="@+id/textView_desc_switch" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Picker: 24dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/textView_tit_picker"
-                android:layout_alignTop="@+id/datePicker"
-                android:layout_alignEnd="@+id/textView_tit_button"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Assieme al Dialog è il componente più elevato"
-                android:textSize="12dp"
-                android:paddingEnd="14dp"
-                android:layout_below="@+id/textView_tit_picker"
-                android:layout_alignStart="@+id/textView_tit_picker"
-                android:layout_alignEnd="@+id/textView_desc_switch" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Radio Button/Checkbox: 1dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
                 android:id="@+id/textView_tit_radio"
-                android:layout_toEndOf="@id/checkBox"
-                android:layout_alignStart="@id/textView_tit_fab"
-                android:layout_alignTop="@id/checkBox"/>
-
-            <TextView
+                android:text="@string/title_radio_check"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Non essendoci indicazioni precise ha un elevazione di 1dp."
-                android:textSize="12dp"
-                android:paddingRight="14dp"
+                android:layout_toEndOf="@id/checkBox"
+                android:layout_alignStart="@id/text_title_fab"
+                android:layout_alignTop="@id/checkBox"/>
+            <TextView
+                android:text="@string/desc_radio_check"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:paddingEnd="16dp"
                 android:layout_below="@id/textView_tit_radio"
-                android:layout_alignLeft="@id/textView_tit_fab"/>
+                android:layout_alignStart="@id/text_title_fab"/>
 
-            " />
+            <!--TextView relative al date picker-->
+            <TextView
+                android:id="@+id/text_title_picker"
+                android:text="@string/title_picker"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/date_picker"
+                android:layout_alignEnd="@+id/text_title_button" />
+            <TextView
+                android:text="@string/desc_picker"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:paddingEnd="16dp"
+                android:layout_below="@+id/text_title_picker"
+                android:layout_alignStart="@+id/text_title_picker"
+                android:layout_alignEnd="@+id/text_desc_switch" />
+
         </RelativeLayout>
 
-
     </ScrollView>
-
 
 </android.support.design.widget.CoordinatorLayout>
