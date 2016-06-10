@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-   Activity che mostra alcuni componenti descrivendone il parametro elevation
--->
+<!--Activity che mostra alcuni componenti descrivendone
+    il parametro elevation-->
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
