@@ -19,7 +19,7 @@
          delle icone con comandi specifici. In tal caso non
          sono state implementate. Specifiche material
          elevation:4dp height:128dp
-         textSize=28dp
+         textSize =28dp
          -->
 
     <android.support.design.widget.AppBarLayout
