@@ -16,11 +16,10 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-public class addItem extends AppCompatActivity {
+public class AddItem extends AppCompatActivity {
 
     // definizione dei campi utili per grafica e parametri d passare a ButtonActivity.
     public EditText testo;
@@ -55,15 +54,15 @@ public class addItem extends AppCompatActivity {
                 str = testo.getText().toString();
 
                 //intent verso ButtonActivity con dentro l'EXTRA la stringa inserita dall'utente.
-                Intent intent = new Intent(addItem.this, ButtonActivity.class);
+                Intent intent = new Intent(AddItem.this, ButtonActivity.class);
                 intent.putExtra("nuovo_elemento", str);
 
                 //Shared grafico dell'elemento.
                 View sharedView = invia;
                 String FABname = getString(R.string.FAB_transition);
 
-                //si passano ad addItem, tramite il metodo startActivity, le opzioni aggiuntive (sharedView) del Fab, come Bundle.
-                ActivityOptions FABOptions = ActivityOptions.makeSceneTransitionAnimation(addItem.this, sharedView, FABname);
+                //si passano ad AddItem, tramite il metodo startActivity, le opzioni aggiuntive (sharedView) del Fab, come Bundle.
+                ActivityOptions FABOptions = ActivityOptions.makeSceneTransitionAnimation(AddItem.this, sharedView, FABname);
                 startActivity(intent,FABOptions.toBundle());
 
 
