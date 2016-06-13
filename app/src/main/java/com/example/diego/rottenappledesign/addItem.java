@@ -19,7 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
-public class AddItem extends AppCompatActivity {
+public class addItem extends AppCompatActivity {
 
     // definizione dei campi utili per grafica e parametri d passare a ButtonActivity.
     public EditText testo;
@@ -54,7 +54,7 @@ public class AddItem extends AppCompatActivity {
                 str = testo.getText().toString();
 
                 //intent verso ButtonActivity con dentro l'EXTRA la stringa inserita dall'utente.
-                Intent intent = new Intent(AddItem.this, ButtonActivity.class);
+                Intent intent = new Intent(addItem.this, ButtonActivity.class);
                 intent.putExtra("nuovo_elemento", str);
 
                 //Shared grafico dell'elemento.
@@ -62,7 +62,7 @@ public class AddItem extends AppCompatActivity {
                 String FABname = getString(R.string.FAB_transition);
 
                 //si passano ad AddItem, tramite il metodo startActivity, le opzioni aggiuntive (sharedView) del Fab, come Bundle.
-                ActivityOptions FABOptions = ActivityOptions.makeSceneTransitionAnimation(AddItem.this, sharedView, FABname);
+                ActivityOptions FABOptions = ActivityOptions.makeSceneTransitionAnimation(addItem.this, sharedView, FABname);
                 startActivity(intent,FABOptions.toBundle());
 
 

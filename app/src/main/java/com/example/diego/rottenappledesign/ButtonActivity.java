@@ -104,7 +104,7 @@ public class ButtonActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Intent verso AddItem.
-                Intent intent = new Intent(ButtonActivity.this, AddItem.class);
+                Intent intent = new Intent(ButtonActivity.this, addItem.class);
 
                 //Shared grafico dell'elemento.
                 View sharedView = fab;
