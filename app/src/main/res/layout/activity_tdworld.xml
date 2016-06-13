@@ -17,7 +17,9 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+             >
 
             <!--Bottone normale -->
             <Button
@@ -27,7 +29,7 @@
                 android:elevation="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="34dp"
+                android:layout_marginTop="35dp"
                 android:layout_below="@+id/text_titolo_componente"
                 android:layout_alignEnd="@+id/text_titolo_componente" />
 
@@ -40,8 +42,9 @@
                 android:fontFamily="sans-serif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/date_picker"
-                android:layout_marginTop="170dp" />
+                android:layout_marginTop="51dp"
+                android:layout_below="@+id/button_normale"
+                android:layout_alignStart="@+id/date_picker" />
 
             <!--Bottone switch -->
             <android.support.v7.widget.SwitchCompat
@@ -51,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/button_floating"
                 android:layout_below="@id/button_floating"
-                android:layout_marginTop="34dp"/>
+                android:layout_marginTop="48dp"/>
 
             <!--Radio Button -->
             <RadioButton
@@ -61,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@id/button_normale"
                 android:layout_below="@id/switch_component"
-                android:layout_marginTop="34dp" />
+                android:layout_marginTop="80dp" />
 
             <!--Checkbox -->
             <CheckBox
@@ -69,9 +72,10 @@
                 android:elevation="1dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_alignTop="@id/radio_button"
-                android:layout_toEndOf="@id/radio_button"/>
+                android:layout_below="@+id/switch_component"
+                android:layout_marginTop="80dp"
+                android:layout_alignEnd="@+id/button_normale"
+                />
 
             <!--Date Picker -->
             <DatePicker
@@ -80,8 +84,9 @@
                 android:layout_width="130dp"
                 android:layout_height="150dp"
                 android:layout_below="@id/radio_button"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="30dp" />
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="16dp"
+                 />
 
             <!--TextView che specificano il titolo:
                 componente o elevazione -->
@@ -90,7 +95,7 @@
                 android:text="@string/title_componente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="16dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignStart="@+id/button_floating" />
             <TextView
@@ -132,7 +137,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/text_desc_fab"
+                android:layout_alignTop="@+id/button_floating"
                 android:layout_alignStart="@+id/text_desc_button" />
 
             <TextView
@@ -143,9 +148,8 @@
                 android:paddingEnd="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/button_floating"
-                android:layout_alignStart="@+id/text_title_fab"
-                android:layout_alignEnd="@+id/text_desc_switch" />
+                android:layout_below="@+id/text_title_fab"
+                android:layout_alignStart="@+id/text_title_fab" />
 
             <!--TextView relative allo switch-->
             <TextView
@@ -155,9 +159,9 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="34dp"
-                android:layout_above="@+id/text_desc_switch"
-                android:layout_alignStart="@+id/text_desc_switch" />
+                android:layout_alignTop="@+id/switch_component"
+                android:layout_alignStart="@+id/text_desc_switch"
+                android:id="@+id/textView" />
             <TextView
                 android:id="@+id/text_desc_switch"
                 android:text="@string/desc_switch"
@@ -166,8 +170,8 @@
                 android:paddingEnd="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/text_title_fab"
-                android:layout_alignBottom="@id/switch_component" />
+                android:layout_below="@+id/textView"
+                android:layout_alignStart="@+id/textView_tit_radio" />
 
             <!--TextView relative al checkbox e al radio button-->
             <TextView

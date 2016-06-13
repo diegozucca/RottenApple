@@ -121,7 +121,7 @@ public class ItemsAdapter extends
                         //imposta testo di bottone (il comando) e di descrizione
                         textView.setText("Mostra 3DWorld");
                         button.setText("3DWorld");
-
+                        
                         //onClick di redirezione verso l'Activity relativa al nome del comando
                         button.setOnClickListener(new View.OnClickListener() {
                             @Override
