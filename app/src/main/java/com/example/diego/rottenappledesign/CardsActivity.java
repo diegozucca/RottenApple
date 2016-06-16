@@ -31,6 +31,10 @@ public class CardsActivity extends AppCompatActivity {
             R.drawable.beach3,
             R.drawable.beach4,
     };
+    private String [] mPrimary_text ={"Titolo Prima Card","Titolo Seconda Card","Titolo Terza Card",
+            "Titolo Quarta Card","Titolo Quinta Card"};
+    private String [] mSubtitle ={"Sottotitolo Prima Card","Sottotitolo Seconda Card",
+            "Sottotitolo Terza Card","Sottotitolo Quarta Card","Sottotitolo Quinta Card"};
     Intent intent;
 
     @Override
@@ -88,32 +92,29 @@ public class CardsActivity extends AppCompatActivity {
                 });
         //Fine codice mDrawer
 
-        //Inizio codice Cards
+        /*
+         *Inizio del codice per le Cards
+         */
+        // Si crea un ArrayList di oggetti CardContent e si inizializzano con
+        // i valori degli array specificati in precedenza
         mDataset=new ArrayList<CardContent>();
-        String [] primary_text={"Titolo Prima Card","Titolo Seconda Card","Titolo Terza Card",
-                "Titolo Quarta Card","Titolo Quinta Card"};
-        String [] subtitle={"Sottotitolo Prima Card","Sottotitolo Seconda Card","Sottotitolo Terza Card",
-                "Sottotitolo Quarta Card","Sottotitolo Quinta Card"};
-        for (int i = 0; i < primary_text.length; i++) {
-            CardContent oggetto=new CardContent(mImages[i],primary_text[i],subtitle[i]);
+        for (int i = 0; i < mPrimary_text.length; i++) {
+            CardContent oggetto=new CardContent(mImages[i], mPrimary_text[i], mSubtitle[i]);
             mDataset.add(oggetto);
         }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
+        // Uso un Layout Manager per il Recycler View
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
+        // Si usa un Adapter specificato nella classe CardAdapter che ha come parametro l'ArrayList
+        // Con l'Adapter si gesticono tutte le azioni delle Cards
         mAdapter = new CardAdapter(mDataset);
         mRecyclerView.setAdapter(mAdapter);
     }
-    //Metodo che permette l'apertura del navigation mDrawer toccando
+
+    //Metodo che permette l'apertura del Navigation Drawer toccando
     //l'icona corrispondente nella toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

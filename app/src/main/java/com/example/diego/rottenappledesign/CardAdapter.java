@@ -2,9 +2,7 @@ package com.example.diego.rottenappledesign;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -13,21 +11,20 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
-
-/**
- * Created by marco on 11/05/2016.
- */
+/*
+* Classe Adapter per le Cards che le costruisce e gestisce il comportamento di esse.
+* @author RottenApple
+* @version 1.0
+*/
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
-    private List<CardContent> list;
-    // gives a reference to the views for every data item
+    private List<CardContent> mList;
+    // Si da una reference alle View per ogni oggetto
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        //si assegnano tutti i componenti utili
+        // Si assegnano tutti i componenti utili
         public ImageView picture;
         public TextView title;
         public TextView subtitle;
@@ -44,13 +41,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             expand_button = (Button) v.findViewById(R.id.expand_button);
             expand_text=(TextView)v.findViewById(R.id.expand_text);
             card_view = (CardView) v.findViewById(R.id.card_view);
-            //misuriamo l'altezza della card per poi espanderla o comprimerla
+
+            // Misura l'altezza della card per poi espanderla o comprimerla
             Context context = v.getContext();
             WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
             DisplayMetrics dimension = new DisplayMetrics();
             windowManager.getDefaultDisplay().getMetrics(dimension);
             final int height = dimension.heightPixels;
-            //salviamo l'altezza minima della card
+            // Salva l'altezza minima della card
             card_view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
                 @Override
                 public boolean onPreDraw() {
@@ -62,6 +60,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
                     return true;
                 }
             });
+            // Quando viene premuto il bottone dell'espansione si gestisce l'evento con il metodo toggleHeight
             expand_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -70,16 +69,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             });
         }
 
+        // Se la card selezionata ha l'altezza minima si espande altrimenti si collassa
         private void toggleHeight(int height) {
             if (card_view.getHeight() == minheight[0])
-                //expand
                 expand(height - 210);
             else
-                //collapse
                 collapse();
         }
 
+        // Metodo che collassa le card già espanse
         public void collapse() {
+            // Istanzio un ValueAnimator per animare la transizione dell'altezza della card
             ValueAnimator animator = ValueAnimator.ofInt(card_view.getMeasuredHeightAndState(), minheight[0]);
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
@@ -91,13 +91,16 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
                 }
             });
             animator.start();
+            // Modifica il testo visualizzato quando la card è espansa
             expand_text.setVisibility(View.GONE);
             expand_text.setHeight(0);
             expand_text.setPadding(0,0,0,0);
             expand_text.setTextSize(0);
+            // Modifica il testo del bottone
             expand_button.setText("EXPANDE");
         }
 
+        // Metodo che espande le Card
         public void expand(int height) {
             ValueAnimator animator = ValueAnimator.ofInt(card_view.getMeasuredHeightAndState(), height);
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -113,12 +116,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             expand_text.setVisibility(View.VISIBLE);
             expand_text.setHeight(height-minheight[0]);
             expand_text.setTextSize(14);
-            expand_text.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," +
-                    " quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute " +
-                    "irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." +
-                    " Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim " +
-                    "id est laborum.");
+            expand_text.setText(R.string.testo_espanso);
             expand_text.setPadding(16,16,16,24);
             expand_button.setText("COLLAPSE");
         }
@@ -126,28 +124,31 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
     }
     //Costruttore dell'adapter, prende come parametro la lista di oggetti
     public CardAdapter(List<CardContent> datalist) {
-        list=datalist;
+        mList =datalist;
     }
-    //Create new views, invoked by the layout manager
+
+    // Metodo che crea nuove View, è invocato dal Layout Manager
     @Override
     public CardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewtype){
-        //Si crea una nuova View, si istanzia e si ritorna
+        // Si crea una nuova View, si istanzia e si ritorna
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_content,parent, false);
         ViewHolder vh=new ViewHolder(view);
         return vh;
     }
-    //onBindViewHolder setta il contenuto della card in base alla posizione nella lista degli oggetti
+
+    // Metodo che setta il contenuto della card in base alla posizione nella lista degli oggetti
     @Override
     public void onBindViewHolder(final ViewHolder vh, int position){
-        //get the element from dataset and replace the contents
-        vh.picture.setImageResource(list.get(position).getPhotoId());
-        vh.title.setText(list.get(position).getTitle());
-        vh.subtitle.setText(list.get(position).getSubtitle());
+        // Prende l'elemento dal dataset e mette il contenuto nei campi della card
+        vh.picture.setImageResource(mList.get(position).getPhotoId());
+        vh.title.setText(mList.get(position).getTitle());
+        vh.subtitle.setText(mList.get(position).getSubtitle());
     }
+
     //Ritorna la grandezza della lista
     @Override
     public int getItemCount(){
-        return list.size();
+        return mList.size();
     }
 }
 
