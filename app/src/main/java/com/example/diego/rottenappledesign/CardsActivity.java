@@ -1,5 +1,9 @@
 package com.example.diego.rottenappledesign;
-
+/*
+* Activity che contiene le Cards espandibili
+* @author RottenApple
+* @version 1.0
+*/
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,15 +19,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardsActivity extends AppCompatActivity {
-    private DrawerLayout drawer;
+    private DrawerLayout mDrawer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    //private String[] myDataset= {"Prima Card","Seconda Card","Terza Card","Quarta Card","Quinta Card"};
     private List<CardContent> mDataset;
-    private int[] images={
-            R.drawable.beach,R.drawable.beach1,R.drawable.beach2,R.drawable.beach3,R.drawable.beach4,
+    private int[] mImages = {
+            R.drawable.beach,
+            R.drawable.beach1,
+            R.drawable.beach2,
+            R.drawable.beach3,
+            R.drawable.beach4,
     };
+    private String [] mPrimary_text ={"Titolo Prima Card","Titolo Seconda Card","Titolo Terza Card",
+            "Titolo Quarta Card","Titolo Quinta Card"};
+    private String [] mSubtitle ={"Sottotitolo Prima Card","Sottotitolo Seconda Card",
+            "Sottotitolo Terza Card","Sottotitolo Quarta Card","Sottotitolo Quinta Card"};
     Intent intent;
 
     @Override
@@ -31,23 +42,26 @@ public class CardsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards);
 
-        //Inizio codice per il navigation drawer
+        /*
+         *Inizio del codice per il Navigation Drawer
+         */
+        //Istanzia il Navigation View e il Drawer tramite l'id nel layout
         final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        drawer = (DrawerLayout) findViewById(R.id.drawer);
-        // Aggiunta dell'icona del navigation drawer nella Toolbar
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer);
+        // Aggiunta dell'icona del Navigation Drawer nella Toolbar
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
             supportActionBar.setHomeAsUpIndicator(R.drawable.drawer_icon);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
-        // Impostazione del comportamento quando un oggetto del drawer viene premuto
+        // Impostazione del comportamento quando un oggetto del Drawer viene premuto
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         // Colora il background dell'oggetto del menu selezionato
                         menuItem.setChecked(true);
-                        // Switch per aprire l'activity riguardante l'oggetto selezionato
+                        // Switch per sapere qual è l'activity da aprire in base all'oggetto selezionato
                         switch (menuItem.getItemId()){
                             case R.id.button_menu:
                                 intent=new Intent(CardsActivity.this, ButtonActivity.class);
@@ -68,42 +82,39 @@ public class CardsActivity extends AppCompatActivity {
                                 break;
 
                         }
-                        // Decolora l'oggetto selezionato e chiude il drawer dopo la selezione dell'oggetto
+                        // Decolora l'oggetto selezionato e chiude il Drawer dopo la selezione dell'oggetto
                         menuItem.setChecked(false);
-                        drawer.closeDrawers();
+                        mDrawer.closeDrawers();
                         //apre l'activity selezionata
                         CardsActivity.this.startActivity(intent);
                         return true;
                     }
                 });
+        //Fine codice mDrawer
 
-        //Fine codice drawer
-        //Inizio codice Cards
+        /*
+         *Inizio del codice per le Cards
+         */
+        // Si crea un ArrayList di oggetti CardContent e si inizializzano con
+        // i valori degli array specificati in precedenza
         mDataset=new ArrayList<CardContent>();
-        String [] primary_text={"Titolo Prima Card","Titolo Seconda Card","Titolo Terza Card",
-                "Titolo Quarta Card","Titolo Quinta Card"};
-        String [] subtitle={"Sottotitolo Prima Card","Sottotitolo Seconda Card","Sottotitolo Terza Card",
-                "Sottotitolo Quarta Card","Sottotitolo Quinta Card"};
-        for (int i = 0; i < primary_text.length; i++) {
-            CardContent oggetto=new CardContent(images[i],primary_text[i],subtitle[i]);
+        for (int i = 0; i < mPrimary_text.length; i++) {
+            CardContent oggetto=new CardContent(mImages[i], mPrimary_text[i], mSubtitle[i]);
             mDataset.add(oggetto);
         }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
+        // Uso un Layout Manager per il Recycler View
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
+        // Si usa un Adapter specificato nella classe CardAdapter che ha come parametro l'ArrayList
+        // Con l'Adapter si gesticono tutte le azioni delle Cards
         mAdapter = new CardAdapter(mDataset);
         mRecyclerView.setAdapter(mAdapter);
     }
-    //Metodo che permette l'apertura del navigation drawer toccando
+
+    //Metodo che permette l'apertura del Navigation Drawer toccando
     //l'icona corrispondente nella toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -111,7 +122,7 @@ public class CardsActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         } else if (id == android.R.id.home) {
-            drawer.openDrawer(GravityCompat.START);
+            mDrawer.openDrawer(GravityCompat.START);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,86 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<!--
+    Layout che specifica il contenuto delle card
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <!-- Inserimento della CardView -->
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
+        card_view:cardCornerRadius="2dp"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="2dp"
         android:layout_margin="5dp">
+
+        <!--LinearLayout per la disposizione degli elementi all'interno della Card -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- Immagine -->
             <ImageView
+                android:id="@+id/image"
                 android:layout_width="400dp"
                 android:layout_height="204dp"
-                android:id="@+id/image"
                 android:layout_gravity="center"/>
+            <!-- Testo del titolo -->
             <TextView
                 android:id="@+id/title"
                 android:textColor="#000000"
-                android:gravity="left"
+                android:textSize="24sp"
+                android:gravity="start"
                 android:paddingTop="24dp"
-                android:textSize="24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-
-                />
+                android:paddingRight="16dp" />
+            <!-- Testo del sottotitolo -->
             <TextView
                 android:id= "@+id/subtitle"
                 android:textColor="@color/subtitle"
-                android:gravity="left"
-                android:textSize="14dp"
+                android:gravity="start"
+                android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="0dp"
                 android:paddingBottom="16dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"/>
+
+            <!-- Linear Layout per la disposizione dei bottoni -->
             <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
+
+                <!-- Primo bottone per un'azione-->
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ACTION 1"
+                    android:text="@string/button_action_card"
                     android:textColor="@color/colorPrimary"
                     android:theme="@style/FlatButton"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="EXPAND"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp" />
+
+                <!-- Bottone per l'espansione o il collasso della Card -->
+                <Button
                     android:id="@+id/expand_button"
+                    android:text="@string/button_expand"
                     android:textColor="@color/colorPrimary"
                     android:theme="@style/FlatButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+                    android:paddingRight="16dp"/>
+
             </LinearLayout>
+
+            <!-- Testo visualizzato quando la Card viene espansa -->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/expand_text"
                 android:id="@+id/expand_text"
-                android:visibility="invisible"/>
-                <!--android:textSize="14dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="24dp"
-                android:paddingRight="16dp"
-                android:paddingLeft="16dp"-->
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
 </LinearLayout>
