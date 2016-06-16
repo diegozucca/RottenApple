@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".AddItem">
+    tools:context=".addItem">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -39,10 +39,10 @@
         >
 
             <android.support.design.widget.TextInputLayout
+                android:id="@+id/string"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:id="@+id/string"
                 android:elevation="1dp"
                 android:textColorHint="@color/colorPrimary"
 
@@ -63,11 +63,11 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button_nuovo_elemento"
+            android:layout_below="@+id/string"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:transitionName="@string/FAB_transition"
             android:textStyle="bold"
-            android:layout_below="@+id/string"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="120dp"
             android:layout_marginTop="5dp"

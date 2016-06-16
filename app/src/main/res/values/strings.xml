@@ -24,4 +24,6 @@
     <string name="title_activity_add_item">Inserisci una stringa</string>
     <string name="expand_text">Testo per far espandere la card</string>
     <string name="FAB_transition">FAB</string>
+    <string name="esa">#9B26AF</string>
+    <string name="buttonSelect">Seleziona il componente!</string>
 </resources>

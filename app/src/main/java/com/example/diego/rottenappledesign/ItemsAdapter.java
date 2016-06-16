@@ -32,9 +32,9 @@ public class ItemsAdapter extends
     //context, button e textView contengono elementi correlati all'activity
     private static final String LOG = ButtonActivity.class.getSimpleName();
     private List<Item> mItems;
-    private Context context;
-    public Button button;
-    public TextView textView;
+    private Context mContext;
+    public Button mButton;
+    public TextView mTextView;
 
     //costruttore: riceve una Lista di Item
     public ItemsAdapter(List<Item> items) {
@@ -93,10 +93,10 @@ public class ItemsAdapter extends
         Item c = mItems.get(position);
 
         //textVew, grazie al costruttore della classe ViewHolder (in fondo al file), punta al testo dell'Item.xml relativo all'elemento di cui si è fatto il bind
-        textView = holder.nameTextView;
+        mTextView = holder.nameTextView;
 
         //button, grazie al costruttore della classe ViewHolder (in fondo al file),  punta al bottone dell'Item.xml relativo all'elemento di cui si è fatto il bind
-        button = holder.messageButton;
+        mButton = holder.messageButton;
 
         //elaborazione dell'Item
         if (c.getName() != null) {
@@ -105,7 +105,7 @@ public class ItemsAdapter extends
             if (c.isNotNew()) {
                 //l'elemento in questione fa parte di quelli NATIVI
                 //si attiva il bottone dell'item
-                button.setEnabled(true);
+                mButton.setEnabled(true);
 
                 //debug per problema con scroll
                 Log.d(LOG, c.getName() + " NATIVE if onBind");
@@ -119,16 +119,16 @@ public class ItemsAdapter extends
                         Log.d(LOG, "3DWorld ==" + c.getName() +" ?" );
 
                         //imposta testo di bottone (il comando) e di descrizione
-                        textView.setText("Mostra 3DWorld");
-                        button.setText("3DWorld");
+                        mTextView.setText("Mostra 3DWorld");
+                        mButton.setText("3DWorld");
                         
                         //onClick di redirezione verso l'Activity relativa al nome del comando
-                        button.setOnClickListener(new View.OnClickListener() {
+                        mButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                context = view.getContext();
-                                Intent intent = new Intent(context, TDWorld.class);
-                                context.startActivity(intent);
+                                mContext = view.getContext();
+                                Intent intent = new Intent(mContext, TDWorld.class);
+                                mContext.startActivity(intent);
 
                             }
                         });
@@ -140,16 +140,16 @@ public class ItemsAdapter extends
                         Log.d(LOG, "Cards ==" + c.getName() +" ?" );
 
                         //imposta testo di bottone (il comando) e di descrizione
-                        textView.setText("Mostra Cards");
-                        button.setText("Cards");
+                        mTextView.setText("Mostra Cards");
+                        mButton.setText("Cards");
 
                         //onClick di redirezione verso l'Activity relativa al nome del comando
-                        button.setOnClickListener(new View.OnClickListener() {
+                        mButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                context = view.getContext();
-                                Intent intent = new Intent(context, CardsActivity.class);
-                                context.startActivity(intent);
+                                mContext = view.getContext();
+                                Intent intent = new Intent(mContext, CardsActivity.class);
+                                mContext.startActivity(intent);
 
                             }
                         });
@@ -162,17 +162,17 @@ public class ItemsAdapter extends
                         Log.d(LOG, "Colors ==" + c.getName() +" ?" );
 
                         //imposta testo di bottone (il comando) e di descrizione
-                        textView.setText("Mostra Colors");
-                        button.setText("Colors");
+                        mTextView.setText("Mostra Colors");
+                        mButton.setText("Colors");
 
                         //onClick di redirezione verso l'Activity relativa al nome del comando
-                        button.setOnClickListener(new View.OnClickListener() {
+                        mButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
 
-                                context = view.getContext();
-                                Intent intent = new Intent(context, Colors.class);
-                                context.startActivity(intent);
+                                mContext = view.getContext();
+                                Intent intent = new Intent(mContext, Colors.class);
+                                mContext.startActivity(intent);
 
 
 
@@ -186,16 +186,16 @@ public class ItemsAdapter extends
                         Log.d(LOG, "Images ==" + c.getName() +" ?" );
 
                         //imposta testo di bottone (il comando) e di descrizione
-                        textView.setText("Mostra Images");
-                        button.setText("Images");
+                        mTextView.setText("Mostra Images");
+                        mButton.setText("Images");
 
                         //onClick di redirezione verso l'Activity relativa al nome del comando
-                        button.setOnClickListener(new View.OnClickListener() {
+                        mButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                context = view.getContext();
-                                Intent intent = new Intent(context, Images.class);
-                                context.startActivity(intent);
+                                mContext = view.getContext();
+                                Intent intent = new Intent(mContext, Images.class);
+                                mContext.startActivity(intent);
 
 
                             }
@@ -210,21 +210,21 @@ public class ItemsAdapter extends
                 //l'elemento in questione non è NATIVO ma aggiunto per lo SCROLL
 
                 //si imposta il testo
-                textView.setText(c.getName());
+                mTextView.setText(c.getName());
 
                 //il bottone del comando non serve
                 //lo si rende invisibile e poi si elimina
-                button.setVisibility(View.INVISIBLE);
-                ViewGroup layout = (ViewGroup) button.getParent();
-                if(null!=layout) layout.removeView(button);
+                mButton.setVisibility(View.INVISIBLE);
+                ViewGroup layout = (ViewGroup) mButton.getParent();
+                if(null!=layout) layout.removeView(mButton);
 
                 //textOnly single line items paddingLeft= 16
-                textView.setPadding(16,0,0,0);
+                mTextView.setPadding(16,0,0,0);
                 //conversione da DP a PIXELS spessore di 48 DP in pixels:
                 // 48 dp è l'altezza del text onli single item prevista dal material
-                DisplayMetrics displayMetrics = textView.getContext().getResources().getDisplayMetrics();
+                DisplayMetrics displayMetrics = mTextView.getContext().getResources().getDisplayMetrics();
                 int px = Math.round(48 * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-                textView.setHeight(px);
+                mTextView.setHeight(px);
 
                 //debug per problema con scroll
                 Log.d(LOG, c.getName() + " else onBind");

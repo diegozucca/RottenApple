@@ -31,10 +31,10 @@ public class Colors extends AppCompatActivity {
     //  definizione dei campi utili per la grafica.
     //il parametro i è usato come puntatore al colore che viene mostrato all'utente: si veda negli if statement
     public static int i=0;
-    public Button b;
-    public Button a;
+    public Button mB;
+    public Button mA;
     public TextView t;
-    private DrawerLayout drawer;
+    private DrawerLayout mDrawer;
     Intent intent;
 
     @Override
@@ -45,13 +45,13 @@ public class Colors extends AppCompatActivity {
 
         //inizializzazione dei bottoni e del testo
         setContentView(R.layout.activity_colors);
-        a = (Button) findViewById(R.id.button_color);
-        b = (Button) findViewById(R.id.button_color2);
+        mA = (Button) findViewById(R.id.button_color);
+        mB = (Button) findViewById(R.id.button_color2);
         t= (TextView) findViewById(R.id.colorText2);
 
         //Inizio codice per il navigation drawer
         final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        drawer = (DrawerLayout) findViewById(R.id.drawer);
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer);
         // Aggiunta dell'icona del navigation drawer nella Toolbar
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
@@ -88,7 +88,7 @@ public class Colors extends AppCompatActivity {
                         }
                         // Decolora l'oggetto selezionato e chiude il drawer dopo la selezione dell'oggetto
                         menuItem.setChecked(false);
-                        drawer.closeDrawers();
+                        mDrawer.closeDrawers();
                         //apre l'activity selezionata
                         Colors.this.startActivity(intent);
                         return true;
@@ -108,7 +108,7 @@ public class Colors extends AppCompatActivity {
         *
         * */
         i=0;
-        a.setOnClickListener(new View.OnClickListener() {
+        mA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -122,10 +122,10 @@ public class Colors extends AppCompatActivity {
                     final  int color = typedValue.data;
 
                     //setta il colore del bottone inferiore
-                    b.setBackgroundColor(color);
-                    b.setText("COLORE PRIMARIO SCURO");
+                    mB.setBackgroundColor(color);
+                    mB.setText("COLORE PRIMARIO SCURO");
                     //setta il colore della scritta del bottone superiore
-                    a.setTextColor(color);
+                    mA.setTextColor(color);
                     //setta il testo sotto il bottone inferiore
                     t.setText("#691A99");
                     i++;
@@ -139,10 +139,10 @@ public class Colors extends AppCompatActivity {
                     Colors.this.getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
                     final  int color = typedValue.data;
                     //setta il colore del bottone inferiore
-                    b.setBackgroundColor(color);
-                    b.setText("COLORE ACCENTO");
+                    mB.setBackgroundColor(color);
+                    mB.setText("COLORE ACCENTO");
                     //setta il colore della scritta del bottone superiore
-                    a.setTextColor(color);
+                    mA.setTextColor(color);
                     //setta il testo sotto il bottone inferiore
                     t.setText("#68EFAD");
                     i++;
@@ -157,10 +157,10 @@ public class Colors extends AppCompatActivity {
                     Colors.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
                     final  int color = typedValue.data;
                     //setta il colore del bottone inferiore
-                    b.setBackgroundColor(color);
-                    b.setText("COLORE PRIMARIO");
+                    mB.setBackgroundColor(color);
+                    mB.setText("COLORE PRIMARIO");
                     //setta il colore della scritta del bottone superiore
-                    a.setTextColor(color);
+                    mA.setTextColor(color);
                     //setta il testo sotto il bottone inferiore
                     t.setText("#9B26AF");
                     i=0;
@@ -181,7 +181,7 @@ public class Colors extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         } else if (id == android.R.id.home) {
-            drawer.openDrawer(GravityCompat.START);
+            mDrawer.openDrawer(GravityCompat.START);
         }
         return super.onOptionsItemSelected(item);
     }

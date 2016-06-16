@@ -17,13 +17,13 @@ public class Item {
     //definizione dei campi nome = contenuto dell'item e
     // newItem = booleano che indica se si tratta di un elemento nuovo per lo scroll o di un elemento "nativo" della lista
     // se l'elemento è nativo il valore è TRUE
-    private String nome;
-    private boolean nativeItem;
+    private String mNome;
+    private boolean mNativeItem;
 
     //costruttore della classe item
     public Item(String name, boolean nw) {
-        nome = name;
-        nativeItem = nw;
+        mNome = name;
+        mNativeItem = nw;
     }
 
     /*
@@ -59,11 +59,11 @@ public class Item {
 
     //restutuisce il nome dell'item della lista
     public String getName() {
-        return nome;
+        return mNome;
     }
 
     //restituisce se l'item fa parte dei nuovi inseriti senza bottone o dei primi
     public boolean isNotNew() {
-        return nativeItem;
+        return mNativeItem;
     }
 }

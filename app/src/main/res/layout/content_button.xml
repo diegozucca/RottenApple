@@ -22,7 +22,7 @@
             android:id="@+id/textContentButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seleziona il componente!"
+            android:text="@string/buttonSelect"
             android:paddingLeft="72dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />

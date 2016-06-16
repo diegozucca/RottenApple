@@ -34,12 +34,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:elevation="6dp"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:text="cambia colore"
                 android:textColor="@color/colorPrimary"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="78dp" />
+                android:layout_marginTop="78dp"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                />
 
 
             <!--
@@ -71,11 +72,11 @@
             esadecimale del colore
             -->
             <TextView
+                android:id="@+id/colorText2"
                 android:layout_width= "wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/colorText2"
                 android:layout_marginBottom="142dp"
-                android:text="#9B26AF"
+                android:text="@string/esa"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true" />
 

@@ -24,18 +24,18 @@ public class addItem extends AppCompatActivity {
     // definizione dei campi utili per grafica e parametri d passare a ButtonActivity.
     public EditText testo;
     private String str;
-    private FloatingActionButton invia;
-    private Toolbar toolbar;
+    private FloatingActionButton mInvia;
+    private Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //inizializzazione dell'edit text,del FAB, del toolbar e della stringa da riempire.
         setContentView(R.layout.activity_add_item);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         testo = (EditText) findViewById(R.id.nuovo_elemento);
-        invia = (FloatingActionButton) findViewById(R.id.button_nuovo_elemento);
+        mInvia = (FloatingActionButton) findViewById(R.id.button_nuovo_elemento);
         str = new String();
 
 
@@ -47,7 +47,7 @@ public class addItem extends AppCompatActivity {
         * l'effetto traslazione.
         *
         ***/
-        invia.setOnClickListener(new View.OnClickListener() {
+        mInvia.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
                 //preleva il testo dall'EditText.
@@ -58,7 +58,7 @@ public class addItem extends AppCompatActivity {
                 intent.putExtra("nuovo_elemento", str);
 
                 //Shared grafico dell'elemento.
-                View sharedView = invia;
+                View sharedView = mInvia;
                 String FABname = getString(R.string.FAB_transition);
 
                 //si passano ad AddItem, tramite il metodo startActivity, le opzioni aggiuntive (sharedView) del Fab, come Bundle.

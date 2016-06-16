@@ -38,21 +38,21 @@ public class ButtonActivity extends AppCompatActivity {
     private static final String LOG = ButtonActivity.class.getSimpleName();
     private static String[] material = new String[11];
     ArrayList<Item> items;
-    private RecyclerView list;
-    private String str,str2;
-    private Bundle bundle;
-    private FloatingActionButton fab;
-    private Toolbar toolbar;
+    private RecyclerView mList;
+    private String mStr,str2;
+    private Bundle mBundle;
+    private FloatingActionButton mFab;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //inizializzazione di toolBar RecyclerView e FAB
         setContentView(R.layout.activity_button);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        list = (RecyclerView) findViewById(R.id.list);
-        fab= (FloatingActionButton) findViewById(R.id.fab);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        mList = (RecyclerView) findViewById(R.id.list);
+        mFab= (FloatingActionButton) findViewById(R.id.fab);
 
         // riempimento dell'array contenitore dei nomi
         material[0]= "3DWorld";
@@ -67,19 +67,19 @@ public class ButtonActivity extends AppCompatActivity {
         // Nel caso sia stato riempito l'EXTRA dell'Intent da AddItem allora si preleva il valore e si aggiungono
         // altre stringhe alla lista. Tali scritte permettono di allungare la lista in maniera tale da
         // permettere lo scroll e vedere gli effetti del FAB.
-        bundle = getIntent().getExtras();
-        if(bundle!=null ) {
+        mBundle = getIntent().getExtras();
+        if(mBundle!=null ) {
 
-            str = bundle.getString("nuovo_elemento");
+            mStr = mBundle.getString("nuovo_elemento");
 
-            if (str != null && (str.compareTo(" ") != 0)) {
+            if (mStr != null && (mStr.compareTo(" ") != 0)) {
                 material[4] = " ";
                 material[5] = "Prova lo scroll:";
                 material[6] = "il bottone";
                 material[7] = "FAB";
                 material[8] = "scompare.";
                 material[9] = "Hai scritto:";
-                material[10] = str;
+                material[10] = mStr;
             }
 
         }
@@ -88,9 +88,9 @@ public class ButtonActivity extends AppCompatActivity {
         items = Item.createList(material);
         ItemsAdapter adptr = new ItemsAdapter(items);
 
-        //adptr settato come adapter della RecyclerView e list attivato.
-        list.setAdapter(adptr);
-        list.setLayoutManager(new LinearLayoutManager(this));
+        //adptr settato come adapter della RecyclerView e mList attivato.
+        mList.setAdapter(adptr);
+        mList.setLayoutManager(new LinearLayoutManager(this));
 
         /*
         *
@@ -99,7 +99,7 @@ public class ButtonActivity extends AppCompatActivity {
         * Si permette la condivisione grafica del FAB e quindi la sua transazione.
         *
         * */
-        fab.setOnClickListener(new View.OnClickListener() {
+        mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -107,7 +107,7 @@ public class ButtonActivity extends AppCompatActivity {
                 Intent intent = new Intent(ButtonActivity.this, addItem.class);
 
                 //Shared grafico dell'elemento.
-                View sharedView = fab;
+                View sharedView = mFab;
                 String FABname = getString(R.string.FAB_transition);
 
                 //si passano ad AddItem, tramite il metodo startActivity, le opzioni aggiuntive (sharedView) del Fab, come Bundle.
@@ -148,8 +148,8 @@ public class ButtonActivity extends AppCompatActivity {
             ItemsAdapter adapter = new ItemsAdapter(items);
 
             //adapter settato come adapter della RecyclerView e list attivato.
-            list.setAdapter(adapter);
-            list.setLayoutManager(new LinearLayoutManager(this));
+            mList.setAdapter(adapter);
+            mList.setLayoutManager(new LinearLayoutManager(this));
 
         }
         return super.onOptionsItemSelected(itm);
