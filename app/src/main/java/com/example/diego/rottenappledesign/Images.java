@@ -35,7 +35,7 @@ public class Images extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
 
-        //inizializzazione  della gridView e impostazione dell'adapter implementato dalla classe ImagesGridAdapter
+        //inizializzazione  della gridView e  impostazione dell'adapter implementato dalla classe ImagesGridAdapter
         gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImagesGridAdapter(this));
 

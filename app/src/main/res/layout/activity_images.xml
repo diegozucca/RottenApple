@@ -14,7 +14,7 @@
     >
 
         <!--
-         AppBar contenente  solo la scritta di descrizione
+         AppBar contenente solo la scritta di descrizione
          Solitamente, nella parte superiore, sono riportate
          delle icone con comandi specifici. In tal caso non
          sono state implementate. Specifiche material

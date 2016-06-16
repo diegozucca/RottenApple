@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Item {
 
 
-    //definizione dei campi nome = contenuto dell'item e
+    //definizione dei campi nome =  contenuto dell'item e
     // newItem = booleano che indica se si tratta di un elemento nuovo per lo scroll o di un elemento "nativo" della lista
     // se l'elemento è nativo il valore è TRUE
     private String mNome;

@@ -28,7 +28,7 @@ import android.widget.TextView;
 
 public class Colors extends AppCompatActivity {
 
-    //  definizione  dei campi utili per la grafica.
+    //  definizione dei campi utili per la grafica.
     //il parametro i è usato come puntatore al colore che viene mostrato all'utente: si veda negli if statement
     public static int i=0;
     public Button mB;

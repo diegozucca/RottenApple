@@ -29,7 +29,7 @@ public class ImagesGridAdapter extends BaseAdapter {
     private final List<ImageItem> mItems = new ArrayList<ImageItem>();
     private final LayoutInflater mInflater;
 
-    // costruttore inizializza, prendendo l'inflater  dell'Activity, la lista di elementi (immagini) del mItems
+    // costruttore inizializza, prendendo l'inflater dell'Activity, la lista di elementi (immagini) del mItems
     public ImagesGridAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
 

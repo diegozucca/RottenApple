@@ -259,7 +259,7 @@ public class ItemsAdapter extends
         public TextView nameTextView;
         public Button messageButton;
 
-        //costruttore che collega  gli elementi di Item.xml
+        //costruttore che collega gli elementi di Item.xml
         public ViewHolder(View itemView) {
             super(itemView);
             nameTextView = (TextView) itemView.findViewById(R.id.text_item);

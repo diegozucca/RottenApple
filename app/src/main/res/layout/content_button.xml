@@ -29,7 +29,7 @@
         <!--
          RecyclerView: lista di elementi riempita dinamicamente dalle
          classi Java.
-         Pading previsto dal  margine superiore pari ad 8dp.
+         Pading previsto dal margine superiore pari ad 8dp.
        -->
         <android.support.v7.widget.RecyclerView
             android:id= "@+id/list"

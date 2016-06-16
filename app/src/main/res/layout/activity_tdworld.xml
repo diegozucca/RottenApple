@@ -33,7 +33,7 @@
                 android:layout_below="@+id/text_titolo_componente"
                 android:layout_alignEnd="@+id/text_titolo_componente" />
 
-            <!--Floating Button  -->
+            <!--Floating Button -->
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/button_floating"
                 android:height="48dp"

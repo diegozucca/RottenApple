@@ -34,7 +34,7 @@
            Le sue animazioni sono 2:
            -Translazione
            -"Fading" allo scroll
-           La seconda è descritta  dalle classi specificate nel behavour.
+           La seconda è descritta dalle classi specificate nel behavour.
            Il transition name serve invece per l'effetto di transizione
            tra Activity. L'elevation è settato a 6dp come nelle specifiche
            Google per Material Design.

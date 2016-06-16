@@ -33,7 +33,7 @@ public class ScrollRotten extends FloatingActionButton.Behavior  {
 
 
     /*
-    * @Override del metodo onStartNestedScroll
+    * @Override del  metodo onStartNestedScroll
     * restituisce un booleano che indica se lo scroll ricevuto come parametro i di ingresso Scoll
     * è uguale al valore dello scroll generale. Per verificare la correttezza di tale valore
     * fa eseguire lo stesso controllo al metodo padre e verifica il risultato
