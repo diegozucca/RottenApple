@@ -42,7 +42,7 @@ public class addItem extends AppCompatActivity {
         /*
         *
         * onClickListenet() {onClick()} del FAB di invio stringa inserita.
-        * Invia il valore inserito dall'utente a ButtonActivity tramite l'intent.
+        * Invia il  valore inserito dall'utente a ButtonActivity tramite l'intent.
         * Si permette la condivisione dell'elemento tra questa Activity e ButtonActivity, attivando così
         * l'effetto traslazione.
         *

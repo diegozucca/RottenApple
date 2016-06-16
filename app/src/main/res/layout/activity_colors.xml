@@ -69,7 +69,7 @@
 
 
             <!--
-            esadecimale del colore
+            esadecimale  del colore
             -->
             <TextView
                 android:id="@+id/colorText2"

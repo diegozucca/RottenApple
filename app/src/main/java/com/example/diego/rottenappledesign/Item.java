@@ -62,7 +62,7 @@ public class Item {
         return mNome;
     }
 
-    //restituisce se l'item fa parte dei nuovi inseriti senza bottone o dei primi
+    //restituisce se l'item fa  parte dei nuovi inseriti senza bottone o dei primi
     public boolean isNotNew() {
         return mNativeItem;
     }

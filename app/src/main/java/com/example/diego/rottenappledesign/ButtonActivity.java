@@ -130,7 +130,7 @@ public class ButtonActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem itm) {
 
-        //si preleva l'id dell'elemento cliccato.
+         //si preleva l'id dell'elemento cliccato.
         int id = itm.getItemId();
         if (id == R.id.action_settings) {
             //si tratta dell'id dell'unico elemento del menu "action setting".

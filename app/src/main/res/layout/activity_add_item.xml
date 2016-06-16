@@ -26,7 +26,7 @@
 
 
     <!--
-      RelativeLayout: oltre all'input contiene il fab che transita
+      RelativeLayout: oltre  all'input contiene il fab che transita
       dall'activity. Per tale motivo si ha il TransitionName uguale
       nelle due Activity
     -->
