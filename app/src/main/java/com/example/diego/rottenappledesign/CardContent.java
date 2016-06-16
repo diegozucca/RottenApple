@@ -1,10 +1,11 @@
 package com.example.diego.rottenappledesign;
 
 /*
-* Classe che crea gli oggetti che saranno contenuti nelle Card dell'activity CardsActivity
+* Classe che crea gli oggetti che saranno contenuti nelle Card dell'activity CardsActivity:
+* un immagine, un titolo e un sottotitolo
 * @author RottenApple
 * @version 1.0
-* */
+*/
 public class CardContent {
     int photoId;
     String title;
