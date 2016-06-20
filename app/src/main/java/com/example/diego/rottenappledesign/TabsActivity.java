@@ -30,7 +30,7 @@ public class TabsActivity extends AppCompatActivity {
         // Imposto il ViewPager per ogni Tab; questa sarà ciò che farà muovere i tabs
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-        //Imposto i Tab all'interno della Toolbar
+        //Collego i TabLayout al ViewPager
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         //Imposto il Tab Image come tab iniziale
@@ -46,7 +46,7 @@ public class TabsActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
-    //Creo l'Adapter per i Fragment/TAbs da aggiungere alla ViewPager
+    //Creo l'Adapter per i Fragment/Tabs da aggiungere alla ViewPager
     static class Adapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
