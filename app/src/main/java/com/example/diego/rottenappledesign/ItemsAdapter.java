@@ -27,6 +27,7 @@ import java.util.List;
 public class ItemsAdapter extends
         RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
+
     // definizione dei  campi utili per debug e per la creazione della lista
     //mItems contiene la lista degli Ietm inizializzati dal costruttore
     //context, button e textView contengono elementi correlati all'activity
@@ -64,6 +65,7 @@ public class ItemsAdapter extends
         //viene creato un view basato sulla grafica di item.xml
         //tale view è messa dentro il padre nella gerarchia grafica
         View conView = inflater.inflate(R.layout.item, parent, false);
+
 
         //crea il viewHolder e lo restituisce
         ViewHolder vh = new ViewHolder(conView);
@@ -195,6 +197,28 @@ public class ItemsAdapter extends
                             public void onClick(View view) {
                                 mContext = view.getContext();
                                 Intent intent = new Intent(mContext, Images.class);
+                                mContext.startActivity(intent);
+
+
+                            }
+                        });
+                        break;
+                    }
+
+                    case "Tabs": {
+                        //debug per problema con scroll
+                        Log.d(LOG, "Tabs ==" + c.getName() +" ?" );
+
+                        //imposta testo di bottone (il comando) e di descrizione
+                        mTextView.setText("Mostra Tabs");
+                        mButton.setText("Tabs");
+
+                        //onClick di redirezione verso l'Activity relativa al nome del comando
+                        mButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                mContext = view.getContext();
+                                Intent intent = new Intent(mContext, TabsActivity.class);
                                 mContext.startActivity(intent);
 
 

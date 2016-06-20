@@ -8,26 +8,46 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-
         <activity
             android:name=".ButtonActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".addItem"
             android:label="@string/title_activity_add_item"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CardsActivity" android:label="@string/Cards" android:theme="@style/AppTheme.Cards"/>
-        <activity android:name=".TDWorld" android:label="@string/TDWorld" android:theme="@style/AppTheme.Cards"/>
-        <activity android:name=".Colors" android:label="@string/Colors" android:theme="@style/AppTheme.Cards"/>
-        <activity android:name=".Images" android:label="@string/Images"  android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CardsActivity"
+            android:label="@string/Cards"
+            android:theme="@style/AppTheme.Cards"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TDWorld"
+            android:label="@string/TDWorld"
+            android:theme="@style/AppTheme.Cards"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Colors"
+            android:label="@string/Colors"
+            android:theme="@style/AppTheme.Cards"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Images"
+            android:label="@string/Images"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity android:name=".TabsActivity"
+            android:label="@string/Images"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

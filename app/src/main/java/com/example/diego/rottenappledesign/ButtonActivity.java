@@ -36,7 +36,7 @@ public class ButtonActivity extends AppCompatActivity {
     // Il bundle serve per prelevare gli EXTRA degli Intent.
 
     private static final String LOG = ButtonActivity.class.getSimpleName();
-    private static String[] material = new String[11];
+    private static String[] material = new String[12];
     ArrayList<Item> items;
     private RecyclerView mList;
     private String mStr,str2;
@@ -59,9 +59,10 @@ public class ButtonActivity extends AppCompatActivity {
         material[1]= "Cards";
         material[2]= "Colors";
         material[3]= "Images";
+        material[4]= "Tabs";
 
         //Esecuzione log: debug per errore scomparsa elementi dall'UI.
-        Log.d(LOG, "LOG MATERIAL" + material[0] + " " + material[1] + " " + material[2] + " " + material[3] + " " + material[4]);
+        Log.d(LOG, "LOG MATERIAL" + material[0] + " " + material[1] + " " + material[2] + " " + material[3] + " " + material[4] + " " + material[5]);
 
 
         // Nel caso sia stato riempito l'EXTRA dell'Intent da AddItem allora si preleva il valore e si aggiungono
@@ -73,13 +74,13 @@ public class ButtonActivity extends AppCompatActivity {
             mStr = mBundle.getString("nuovo_elemento");
 
             if (mStr != null && (mStr.compareTo(" ") != 0)) {
-                material[4] = " ";
-                material[5] = "Prova lo scroll:";
-                material[6] = "il bottone";
-                material[7] = "FAB";
-                material[8] = "scompare.";
-                material[9] = "Hai scritto:";
-                material[10] = mStr;
+                material[5] = " ";
+                material[6] = "Prova lo scroll:";
+                material[7] = "il bottone";
+                material[8] = "FAB";
+                material[9] = "scompare.";
+                material[10] = "Hai scritto:";
+                material[11] = mStr;
             }
 
         }
@@ -140,8 +141,10 @@ public class ButtonActivity extends AppCompatActivity {
             material[1]= "Cards";
             material[2]= "Colors";
             material[3]= "Images";
+            material[4]= "Tabs";
             //nuovi elementi a zero
-            for(int i=4; i<11; i++) material[i]=null;
+            for(int i=5; i<12; i++)
+                material[i]=null;
 
             //inizializza l'Item.
             items = Item.createList(material);

@@ -39,19 +39,18 @@ public class Item {
         //lista di item (componenti della lista)
         ArrayList<Item> items = new ArrayList<Item>();
 
-        //i primi 4 nativeItem= true ==> non nuovi per lo scroll
+        //i primi 5 nativeItem= true ==> non nuovi per lo scroll
         int i;
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 5; i++) {
             items.add(new Item(material[i], true));
         }
 
-
-        i = 5;
         //i restanti elementi sono posti come elementi nativeItem=false ==> nuovi per lo scroll
         while (i < material.length && material[i] != null) {
             items.add(new Item(material[i], false));
             i++;
         }
+
 
         //restituisce la lista di item
         return items;

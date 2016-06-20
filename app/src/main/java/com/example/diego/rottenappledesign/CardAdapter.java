@@ -2,6 +2,7 @@ package com.example.diego.rottenappledesign;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 /*
@@ -28,9 +30,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         public ImageView picture;
         public TextView title;
         public TextView subtitle;
+        public Button action_button;
         public Button expand_button;
         public TextView expand_text;
         public CardView card_view;
+        public TextView hidden_text;
+        public TextView save_box_text;
         final int[] minheight = new int[1];
 
         public ViewHolder(View v) {
@@ -38,10 +43,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             picture = (ImageView) v.findViewById(R.id.image);
             title = (TextView) v.findViewById(R.id.title);
             subtitle = (TextView) v.findViewById(R.id.subtitle);
+            action_button = (Button) v.findViewById(R.id.action_button);
             expand_button = (Button) v.findViewById(R.id.expand_button);
             expand_text=(TextView)v.findViewById(R.id.expand_text);
             card_view = (CardView) v.findViewById(R.id.card_view);
-
+            hidden_text = (TextView) v.findViewById(R.id.expand_text);
+            save_box_text = (TextView) v.findViewById(R.id.save_box_text);
             // Misura l'altezza della card per poi espanderla o comprimerla
             Context context = v.getContext();
             WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -60,6 +67,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
                     return true;
                 }
             });
+            // Lancia un Toast di breve durata
+            action_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(),save_box_text.getText(),Toast.LENGTH_SHORT).show();
+                }
+            });
+
             // Quando viene premuto il bottone dell'espansione si gestisce l'evento con il metodo toggleHeight
             expand_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -116,7 +131,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             expand_text.setVisibility(View.VISIBLE);
             expand_text.setHeight(height-minheight[0]);
             expand_text.setTextSize(14);
-            expand_text.setText(R.string.testo_espanso);
             expand_text.setPadding(16,16,16,24);
             expand_button.setText("COLLAPSE");
         }
@@ -143,6 +157,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         vh.picture.setImageResource(mList.get(position).getPhotoId());
         vh.title.setText(mList.get(position).getTitle());
         vh.subtitle.setText(mList.get(position).getSubtitle());
+        vh.hidden_text.setText(mList.get(position).getHiddenText());
+        vh.save_box_text.setText((mList.get(position).getSaveBosxText()));
     }
 
     //Ritorna la grandezza della lista

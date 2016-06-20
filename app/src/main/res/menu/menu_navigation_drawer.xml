@@ -22,5 +22,9 @@
             android:id="@+id/images_menu"
             android:tint="@color/colorPrimary"
             android:title="@string/drawer_images" />
+        <item
+            android:id="@+id/tabs_menu"
+            android:tint="@color/colorPrimary"
+            android:title="@string/drawer_tabs" />
     </group>
 </menu>

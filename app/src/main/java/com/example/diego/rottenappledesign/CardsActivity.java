@@ -5,6 +5,7 @@ package com.example.diego.rottenappledesign;
 * @version 1.0
 */
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -81,6 +82,10 @@ public class CardsActivity extends AppCompatActivity {
                                 intent=new Intent(CardsActivity.this, Images.class);
                                 break;
 
+                            case R.id.tabs_menu:
+                                intent=new Intent(CardsActivity.this, TabsActivity.class);
+                                break;
+
                         }
                         // Decolora l'oggetto selezionato e chiude il Drawer dopo la selezione dell'oggetto
                         menuItem.setChecked(false);
@@ -98,8 +103,12 @@ public class CardsActivity extends AppCompatActivity {
         // Si crea un ArrayList di oggetti CardContent e si inizializzano con
         // i valori degli array specificati in precedenza
         mDataset=new ArrayList<CardContent>();
+
+        //Recupero le risorse (una stringa in questo caso) che mi interessano
+        Resources resources = getResources();
+
         for (int i = 0; i < mPrimary_text.length; i++) {
-            CardContent oggetto=new CardContent(mImages[i], mPrimary_text[i], mSubtitle[i]);
+            CardContent oggetto=new CardContent(mImages[i], mPrimary_text[i], mSubtitle[i], resources.getString(R.string.testo_espanso) ,"AZIONE NON ATTIVA");
             mDataset.add(oggetto);
         }
 
