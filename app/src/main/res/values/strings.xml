@@ -50,7 +50,7 @@
 
     <!-- STRINGHE PER I TABS -->
 
-    <!-- LIST -->
+    <!-- List -->
     <string-array name="list">
         <item>TITOLO</item>
         <item>Breve Descrizione</item>
@@ -59,7 +59,7 @@
             CHE STA UTILIZZANDO L\' APPLICAZIONE ROTTEN APPLE DESIGN</item>
     </string-array>
 
-    <!-- CARDS -->
+    <!-- Cards -->
     <string-array name="descrizione_sviluppatori">
         <item>Ragazzo che arriva dalla lontana Sardegna che approda nella fredda e confusionaria
         città padovana, alla ricerca dei misteri dell\'informatica (passando prima per analisi) e

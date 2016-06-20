@@ -2,15 +2,16 @@
 
 <!-- Semplice layout contente un'immagine -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
+        android:src="@drawable/rotten_appel_design"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foregroundGravity="center"
-        android:src="@drawable/rotten_appel_design"/>
+        android:foregroundGravity="center"/>
 
 </RelativeLayout>

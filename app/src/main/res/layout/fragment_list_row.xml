@@ -2,33 +2,36 @@
 
 <!-- Layout di ogni singola riga della lista gestita dal RecyclerView -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="72dp">
+    android:layout_height="72dp"
+    android:orientation="horizontal">
 
     <!-- Icona dell'elemento della lista -->
 
     <ImageView
         android:id="@+id/ic_image_item_list"
-        android:layout_centerVertical="true"
-        android:paddingStart="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"  />
 
     <!-- LinearLayout contente titolo e breve descrizione -->
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:paddingStart="72dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingEnd="72dp"
+        android:paddingStart="72dp">
 
         <TextView
             android:id="@+id/text_title_item_list"
-            android:textColor="#000000"
             android:fontFamily="sans-serif"
+            android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -49,18 +52,19 @@
         android:id="@+id/button_ic_info_item_list"
         android:src="@drawable/ic_action_info"
         android:background="@null"
-        android:paddingRight="16dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"/>
 
-    <!-- TEXTVIEW USATA PER CONTENERE LE INFORMAZIONI DELL'ELEMENTO DELLA LISTA -->
+    <!-- TextView usta per contere le informazioni dell'elemento della lista -->
 
     <TextView
         android:id="@+id/text_information_item_list"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
 
 </RelativeLayout>

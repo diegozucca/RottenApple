@@ -41,6 +41,7 @@ public class TabsCardAdapter extends RecyclerView.Adapter<TabsCardAdapter.ViewHo
         public TextView save_box_text;
         final int[] minheight = new int[1];
 
+        //Costruttore del layout della riga, vengono istanziate tutte le View della riga
         public ViewHolder(View v) {
             super(v);
             picture = (ImageView) v.findViewById(R.id.image);
@@ -72,6 +73,7 @@ public class TabsCardAdapter extends RecyclerView.Adapter<TabsCardAdapter.ViewHo
                 }
             });
 
+            //Lancia un Dialog che descrive brevemente la Card
             action_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
