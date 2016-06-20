@@ -55,11 +55,13 @@ public class TabsActivity extends AppCompatActivity {
             super(manager);
         }
 
+        //Restituisce il Fragment della posizione data
         @Override
         public Fragment getItem(int position) {
             return mFragmentList.get(position);
         }
 
+        //Restituisce il numero totali di Fragment memorizzati
         @Override
         public int getCount() {
             return mFragmentList.size();
@@ -70,6 +72,7 @@ public class TabsActivity extends AppCompatActivity {
             mFragmentTitleList.add(title);
         }
 
+        //Restituisce il nome del Fragment
         @Override
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
