@@ -15,7 +15,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:paddingEnd="16dp"
         android:paddingStart="16dp"  />
 
     <!-- LinearLayout contente titolo e breve descrizione -->
@@ -25,7 +24,6 @@
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingEnd="72dp"
         android:paddingStart="72dp">
 
         <TextView
@@ -56,8 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:paddingEnd="16dp"
-        android:paddingStart="16dp"/>
+        android:paddingEnd="16dp" />
 
     <!-- TextView usta per contere le informazioni dell'elemento della lista -->
 
