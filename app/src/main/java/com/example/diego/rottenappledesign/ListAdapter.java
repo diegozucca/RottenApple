@@ -23,6 +23,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListItemViewHolder> {
     }
 
     //Crea la grafica della riga facendo riferimento al layout di fragment_list_row
+    @Override
     public ListItemViewHolder onCreateViewHolder(ViewGroup parent, int viewtype) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_list_row, parent, false);
         ListItemViewHolder vh = new ListItemViewHolder(view);
@@ -30,6 +31,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListItemViewHolder> {
     }
 
     //Popola la riga creata col metodo precedente
+    @Override
     public void onBindViewHolder(ListItemViewHolder holder, int position) {
         holder.imageIcon.setImageResource(list.get(position).getmImageID());
         holder.title.setText(list.get(position).getTitle());
@@ -38,6 +40,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListItemViewHolder> {
     }
 
     //Restituisce la grandezza della lista
+    @Override
     public int getItemCount() {
         return list.size();
     }
